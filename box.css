@@ -1,0 +1,45 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Basic box style */
+.box{
+    background-color:pink;
+    height:60px;
+    width:80px;
+    text-align:center;
+    line-height:60px;
+    margin:5px;
+}
+
+/* Padding example */
+.padding{
+    background-color:blue;
+    color:white;
+    padding:10px;
+}
+
+/* Border example */
+.border{
+    background-color:aqua;
+    border:5px solid gold;
+}
+
+/* Margin container */
+.container{
+    background-color:burlywood;
+    margin:20px;
+    padding:10px;
+    display:flex;
+}
+.finalbox{
+   
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
