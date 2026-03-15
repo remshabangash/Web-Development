@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remsha Bangash Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            transition: all 0.5s ease;
+        }
+
+        a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4b6cb7;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(24, 40, 72, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-link {
+            color: #f1f1f1;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffca28;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(75, 108, 183, 0.9), rgba(24, 40, 72, 0.9));
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            transition: color 0.3s ease;
+        }
+
+        .hero h1:hover {
+            color: #ffca28;
+        }
+
+        .hero p.lead {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+        }
+
+        .hero img {
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .btn {
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Titles */
+        .section-title {
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 2.4rem;
+            color: #182848;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #4b6cb7;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 50px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about:hover {
+            transform: translateY(-5px);
+        }
+
+        .about img {
+            max-width: 250px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .about img:hover {
+            transform: scale(1.05);
+        }
+
+        .about p,
+        .about ul,
+        .about h5 {
+            font-size: 1.05rem;
+            color: #333;
+        }
+/* About Section Image - Rectangular Box */
+.about-img {
+    width: 250px;           /* Fixed width */
+    height: 300px;          /* Fixed height */
+    object-fit: cover;      /* Ensures the image fills the box without stretching */
+    border-radius: 10px;    /* Slightly rounded corners */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Shadow for nice effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+        /* Skills Section */
+        .skills {
+            background: rgba(75, 108, 183, 0.05);
+            padding: 50px 0;
+            border-radius: 15px;
+        }
+
+        .skills .progress {
+            height: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills .progress-bar {
+            font-weight: bold;
+            color: #fff;
+            transition: width 0.5s ease;
+        }
+
+        /* Projects Section */
+        .projects .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .projects .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .projects img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .projects .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .projects .btn {
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .projects .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: rgba(75, 108, 183, 0.05);
+            padding: 50px 0;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #contact .btn {
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        #contact .btn:hover {
+            background: #182848;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 30px 0;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffca28;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p.lead {
+                font-size: 1.1rem;
+            }
+
+            .about,
+            .skills,
+            #contact {
+                padding: 30px 20px;
+            }
+
+            .projects img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#">Remsha Bangash</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://photosfinite.com/wp-content/uploads/2025/03/Muslim-Girls-Dpz.webp"
+                        class="img-fluid mx-auto d-block" alt="Remsha Bangash">
+                </div>
+                <div class="col-md-6 text-white text-center text-md-start">
+                    <h1 class="fw-bold">Hi, I'm Remsha Bangash</h1>
+                    <p class="lead">Web Developer | Graphic Designer | BS CS Student</p>
+                    <p>I create modern, responsive, and visually appealing websites, turning creative ideas into digital solutions.</p>
+                    <div class="mt-3">
+                        <a href="#projects" class="btn btn-primary btn-lg me-2">View Projects</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- About Section -->
+    <section id="about" class="py-5 about container mt-5">
+        <h2 class="section-title mb-4">About Me</h2>
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="https://images.pexels.com/photos/5238140/pexels-photo-5238140.jpeg"
+                    class="rounded-circle img-fluid" alt="Profile">
+            </div>
+            <div class="col-md-8">
+                <p>Hello! I am <strong>Remsha Bangash</strong>, a passionate web developer and designer creating modern, responsive, and visually appealing websites.</p>
+
+                <h5 class="mt-3 mb-1">Education</h5>
+                <ul>
+                    <li><strong>Matriculation:</strong> GGCM School, Kohat — 1002/1100</li>
+                    <li><strong>FSc:</strong> GGPG College, Kohat — 1044/1200</li>
+                </ul>
+
+                <h5 class="mt-3 mb-1">Career Goals</h5>
+                <p>I aim to become a full-stack developer and work on impactful web projects combining design and functionality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title mb-4">Skills</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5>HTML</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width:90%;">90%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>JavaScript</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width:30%;">30%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>Bootstrap</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" style="width:85%;">85%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>CSS</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width:90%;">90%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>UI Design</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width:50%;">50%</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>Git</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" style="width:70%;">70%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 container">
+        <h2 class="section-title mb-4">Practice Projects</h2>
+        <div class="row g-4 projects">
+            <div class="col-md-4 d-flex">
+                <div class="card h-100">
+                    <img src="https://miro.medium.com/1*5gJzummAqpBDGATo0fjU6Q.jpeg" alt="Project 1">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">HTML</h5>
+                        <p class="card-text">Basic webpage using HTML with headings, paragraphs, and lists for structure practice.</p>
+                        <a href="../html_files/login.html" class="btn btn-primary mt-auto">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="card h-100">
+                    <img src="https://miro.medium.com/1*R9vfWQrF0c223dm3wTTnGQ.jpeg" alt="Project 2">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">CSS</h5>
+                        <p class="card-text">Simple webpage styled with CSS to practice colors, fonts, and layouts.</p>
+                        <a href="../html_files/regform.html" class="btn btn-primary mt-auto">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200"
+                        alt="Project 3">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Bootstrap</h5>
+                        <p class="card-text">Responsive webpage template using Bootstrap grids, cards, and navigation components.</p>
+                        <a href="portfolio2.html" class="btn btn-primary mt-auto">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container my-5">
+        <h2 class="section-title mb-4">Contact Me</h2>
+        <p class="text-center mb-4">Have a question or want to work together? Send me a message!</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="thankyou.html">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Your Message"
+                            required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer id="footer">
+    <div class="container text-center py-4">
+        <p>© 2026 Remsha Bangash. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourFacebookProfile" target="_blank">
+                <i class="fab fa-facebook fa-2x mx-2"></i>
+            </a>
+            <a href="https://twitter.com/YourTwitterProfile" target="_blank">
+                <i class="fab fa-twitter fa-2x mx-2"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/YourLinkedInProfile" target="_blank">
+                <i class="fab fa-linkedin fa-2x mx-2"></i>
+            </a>
+            <a href="https://github.com/YourGitHubProfile" target="_blank">
+                <i class="fab fa-github fa-2x mx-2"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
