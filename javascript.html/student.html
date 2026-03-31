@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Student App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>Simple Student App</h2>
+
+<form id="studentForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="number" id="age" placeholder="Age" required>
+    <input type="text" id="course" placeholder="Course" required>
+    <button type="submit">Add</button>
+</form>
+
+<ul id="studentList"></ul>
+
+<script>
+$(document).ready(function() {
+    let students = []; // Array to store students
+
+    // Function to show students
+    function showStudents() {
+        $("#studentList").empty(); // clear list
+        students.forEach((s, i) => {
+            $("#studentList").append(
+                `<li>${s.name} | ${s.age} | ${s.course} 
+                <button class="delBtn" data-index="${i}">Delete</button></li>`
+            );
+        });
+    }
+
+    // Add student on form submit
+    $("#studentForm").submit(function(e) {
+        e.preventDefault(); // prevent reload
+        let name = $("#name").val();
+        let age = $("#age").val();
+        let course = $("#course").val();
+        students.push({name, age, course}); // add object to array
+        showStudents(); // update list
+        $("#name, #age, #course").val(""); // clear inputs
+    });
+
+    // Delete student
+    $("#studentList").on("click", ".delBtn", function() {
+        let index = $(this).data("index");
+        students.splice(index, 1); // remove student
+        showStudents(); // update list
+    });
+});
+</script>
+
+</body>
+</html>

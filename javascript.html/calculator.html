@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+            background: #28c6f7;
+    
+        }
+      
+        .box {
+            background: white;
+            padding: 30px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: rgb(255, 255, 255);
+            border: none;
+
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Age Calculator</h2>
+
+        <input type="number" id="birthYear" placeholder="Enter Birth Year">
+
+        <br>
+
+        <button onclick="calculateAge()">Calculate Age</button>
+
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+
+        function calculateAge() {
+            let birthYear = document.getElementById("birthYear").value;
+            let currentYear = new Date().getFullYear();
+            let age = currentYear - birthYear;
+        
+            document.getElementById("result").innerText =
+                "Your age is " + age + " years.";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Program</title>
+</head>
+<body>
+
+<script>
+let n = Number(prompt("Enter a number"))
+
+// counters
+let evenCount = 0
+let oddCount = 0
+let sum = 0
+
+// 1 to n loop
+for(let i = 1; i <= n; i++) {
+    document.write(i + "<br>")
+
+    if(i % 2 == 0) {
+        evenCount++
+    } else {
+        oddCount++
+    }
+
+    // sum of numbers divisible by 3 and 5
+    if(i % 3 == 0 && i % 5 == 0) {
+        sum += i
+    }
+}
+
+// sum result
+document.write("Sum of numbers divisible by 3 and 5: " + sum + "<br><br>")
+
+// reverse loop
+for(let i = n; i >= 1; i--) {
+    document.write(i + "<br>")
+    
+    if(i % 4 == 0) {
+        document.write(i + " is divisible by 4<br>")
+    }
+}
+
+// prime check
+let isPrime = true
+
+if(n <= 1) {
+    isPrime = false
+} else {
+    for(let i = 2; i < n; i++) {
+        if(n % i == 0) {
+            isPrime = false
+            break
+        }
+    }
+}
+
+if(isPrime) {
+    document.write("Prime Number<br>")
+} else {
+    document.write("Not Prime Number<br>")
+}
+
+// even & odd count
+document.write("Even numbers: " + evenCount + "<br>")
+document.write("Odd numbers: " + oddCount + "<br>")
+</script>
+
+</body>
+</html>

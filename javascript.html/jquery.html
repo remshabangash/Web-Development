@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Full Practice</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        #box {
+            width: 200px;
+            height: 100px;
+            background: lightblue;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>jQuery Events + Effects Demo</h2>
+
+<p id="text">Click buttons to see effects</p>
+
+<div id="box">Hover me 👇</div>
+
+<br>
+
+<!-- Buttons -->
+<button id="hideBtn">Hide</button>
+<button id="showBtn">Show</button>
+<button id="toggleBtn">Toggle</button>
+
+<button id="fadeOutBtn">Fade Out</button>
+<button id="fadeInBtn">Fade In</button>
+<button id="fadeToggleBtn">Fade Toggle</button>
+
+<button id="slideUpBtn">Slide Up</button>
+<button id="slideDownBtn">Slide Down</button>
+<button id="slideToggleBtn">Slide Toggle</button>
+
+<script>
+$(document).ready(function(){
+
+    // FUNCTION (custom function)
+    function message(msg){
+        $("#text").text(msg);
+    }
+
+    //  CLICK EVENTS
+    $("#hideBtn").click(function(){
+        $("#box").hide(500);
+        message("Box Hidden");
+    });
+
+    $("#showBtn").click(function(){
+        $("#box").show(500);
+        message("Box Shown");
+    });
+
+    $("#toggleBtn").click(function(){
+        $("#box").toggle(500);
+        message("Box Toggled");
+    });
+
+    // FADE EFFECTS
+    $("#fadeOutBtn").click(function(){
+        $("#box").fadeOut(1000);
+        message("Fade Out");
+    });
+
+    $("#fadeInBtn").click(function(){
+        $("#box").fadeIn(1000);
+        message("Fade In");
+    });
+
+    $("#fadeToggleBtn").click(function(){
+        $("#box").fadeToggle(1000);
+        message("Fade Toggle");
+    });
+
+    //  SLIDE EFFECTS
+    $("#slideUpBtn").click(function(){
+        $("#box").slideUp(1000);
+        message("Slide Up");
+    });
+
+    $("#slideDownBtn").click(function(){
+        $("#box").slideDown(1000);
+        message("Slide Down");
+    });
+
+    $("#slideToggleBtn").click(function(){
+        $("#box").slideToggle(1000);
+        message("Slide Toggle");
+    });
+
+    //  MOUSE EVENTS
+    $("#box").mouseenter(function(){
+        $(this).css("background", "orange");
+        message("Mouse Entered Box");
+    });
+
+    $("#box").mouseleave(function(){
+        $(this).css("background", "lightblue");
+        message("Mouse Left Box");
+    });
+
+    //  DOUBLE CLICK EVENT
+    $("#box").dblclick(function(){
+        alert("Box Double Clicked!");
+    });
+
+});
+</script>
+
+</body>
+</html>
